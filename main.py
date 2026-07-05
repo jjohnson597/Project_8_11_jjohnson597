@@ -8,6 +8,9 @@ Date: 7/12/2026
 
 import random
 
+from character import Player
+from game_data import LOCATIONS, ENEMIES, SHOP_ITEMS
+
 def view_character(player):
     """Display the player's current character statistics."""
     print("\nCharacter Stats")
@@ -173,16 +176,7 @@ def explore(player, inventory, locations, monsters):
 print("Welcome to RPG Adventure Simulator!")
 print("Create your hero and begin your journey.")
 
-player_name = input("\nEnter your hero's name: ")
-player = {
-    "name": player_name,
-    "level": 1,
-    "health": 30,
-    "max_health": 30,
-    "attack": 6,
-    "gold": 10
-}
-inventory = ["Health Potion", "Rusty Sword"]
+player = Player(player_name)
 print(f"\nWelcome, {player['name']}!")
 
 locations = ("Forest", "Cave", "Abandoned Road")
