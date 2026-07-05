@@ -22,12 +22,12 @@ def view_character(player):
     print(f"Gold: {player.gold}")
     input("\nPress Enter to continue...")
 
-def view_inventory(inventory):
+def view_inventory(player):
     """Display all items currently in the player's inventory."""
     print("\nInventory")
     print("---------")
 
-    for item in inventory:
+    for item in player.inventory:
         print(f"- {item}")
 
     input("\nPress Enter to continue...")
@@ -217,7 +217,7 @@ while True:
         explore(player, inventory, locations, monsters)
 
     elif choice == "3":
-        view_inventory(inventory)
+        view_inventory(player)
 
     elif choice == "4":
         use_health_potion(player, inventory)
