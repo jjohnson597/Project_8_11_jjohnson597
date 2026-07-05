@@ -1,7 +1,7 @@
 """
-Program: RPG Adventure Simulator 2 - Game Data
+Program: RPG Adventure Simulator 2
 Author: Jaylen Johnson
-Purpose: Stores reusable game data for locations, enemies, and shop items.
+Purpose: Main game loop for RPG Adventure Simulator 2.
 Starter code: Adapted from my Project 1 RPG Adventure Simulator.
 Date: 7/12/2026
 """
@@ -173,27 +173,15 @@ def explore(player, inventory, locations, monsters):
 
     input("\nPress Enter to continue...")
 
-print("Welcome to RPG Adventure Simulator!")
+print("Welcome to RPG Adventure Simulator 2!")
 print("Create your hero and begin your journey.")
 
+player_name = input("\nEnter your hero's name: ")
 player = Player(player_name)
-print(f"\nWelcome, {player['name']}!")
 
-locations = ("Forest", "Cave", "Abandoned Road")
-
-monsters = [
-    {"name": "Goblin", "health": 10, "attack": 3, "gold": 5},
-    {"name": "Skeleton", "health": 15, "attack": 4, "gold": 8},
-    {"name": "Orc", "health": 20, "attack": 5, "gold": 12}
-]
+print(f"\nWelcome, {player.name}!")
 
 boss_defeated = False
-
-shop_items = {
-    "Health Potion": 8,
-    "Iron Sword": 20,
-    "Steel Shield": 15
-}
 
 while True:
     print("\n==========================")
@@ -214,19 +202,19 @@ while True:
         view_character(player)
 
     elif choice == "2":
-        explore(player, inventory, locations, monsters)
+        explore(player, LOCATIONS, ENEMIES)
 
     elif choice == "3":
         view_inventory(player)
 
     elif choice == "4":
-        use_health_potion(player, inventory)
+        use_health_potion(player)
 
     elif choice == "5":
         rest(player)
 
     elif choice == "6":
-        visit_shop(player, inventory, shop_items)
+        visit_shop(player, SHOP_ITEMS)
 
     elif choice == "7":
         boss_defeated = challenge_boss(player)
