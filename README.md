@@ -1,0 +1,9 @@
+# Project_8_11_jjohnson597
+
+Video Link: Coming soon
+
+## RPG Adventure Simulator 2
+
+This project builds on my first RPG Adventure Simulator project and expands it using Python concepts from Chapters 8 through 11.
+
+The upgraded version includes modular code organization, object-oriented programming, inheritance, JSON save/load functionality, exception handling, and automated tests.
