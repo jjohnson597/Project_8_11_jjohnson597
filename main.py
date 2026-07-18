@@ -10,6 +10,7 @@ import random
 
 from character import Player
 from game_data import LOCATIONS, ENEMIES, SHOP_ITEMS
+from save_manager import save_game, load_game
 
 def view_character(player):
     """Display the player's current character statistics."""
@@ -200,10 +201,11 @@ while True:
     print("4. Use Health Potion")
     print("5. Rest")
     print("6. Visit Shop")
-    print("7. Challenge Dragon King")
-    print("8. Quit")
-
-    choice = input("\nChoose an option (1-8): ")
+    print("7. Save Game")
+    print("8. Load Game")
+    print("9. Challenge Dragon King")
+    print("10. Quit")
+    choice = input("\nChoose an option (1-10): ")
 
     if choice == "1":
         view_character(player)
@@ -224,17 +226,29 @@ while True:
         visit_shop(player, SHOP_ITEMS)
 
     elif choice == "7":
+        save_game(player)
+        input("\nPress Enter to continue...")
+
+    elif choice == "8":
+        loaded_player = load_game()
+
+        if loaded_player is not None:
+            player = loaded_player
+
+        input("\nPress Enter to continue...")
+
+    elif choice == "9":
         boss_defeated = challenge_boss(player)
 
         if boss_defeated:
             break
 
-    elif choice == "8":
+    elif choice == "10":
         print("\nThanks for playing. Goodbye!")
         break
 
     else:
-        print("\nInvalid choice. Please enter a number from 1 to 8.")
+        print("\nInvalid choice. Please enter a number from 1 to 10.")
         input("\nPress Enter to continue...")
 
     

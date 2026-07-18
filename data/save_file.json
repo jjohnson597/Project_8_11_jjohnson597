@@ -1,0 +1,12 @@
+{
+    "name": "bingbong",
+    "level": 1,
+    "health": 30,
+    "max_health": 30,
+    "attack": 6,
+    "gold": 18,
+    "inventory": [
+        "Health Potion",
+        "Rusty Sword"
+    ]
+}
