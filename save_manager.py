@@ -17,7 +17,7 @@ SAVE_FILE = SAVE_DIRECTORY / "save_file.json"
 
 def save_game(player):
     """Save the player's current progress to a JSON file."""
-    SAVE_DIRECTORY.mkdir(exist_ok=True)
+    SAVE_FILE.parent.mkdir(parents=True, exist_ok=True)
 
     player_data = {
         "name": player.name,
