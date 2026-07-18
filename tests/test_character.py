@@ -1,5 +1,9 @@
 """
-Unit tests for the RPG character classes.
+Program: RPG Adventure Simulator 2 - Character Tests
+Author: Jaylen Johnson
+Purpose: Provides automated unit tests for RPG character classes.
+Starter code: Original tests created for this project using unittest.
+Date: 7/19/2026
 """
 
 import unittest

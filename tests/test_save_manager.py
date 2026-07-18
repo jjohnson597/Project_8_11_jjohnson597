@@ -1,5 +1,9 @@
 """
-Unit tests for the RPG save manager.
+Program: RPG Adventure Simulator 2 - Save Manager Tests
+Author: Jaylen Johnson
+Purpose: Provides automated unit tests for the save manager functionality.
+Starter code: Original tests created for this project using unittest.
+Date: 7/19/2026
 """
 
 import json
