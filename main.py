@@ -113,8 +113,8 @@ def challenge_boss(player):
     input("\nPress Enter to continue...")
     return False
 
-def explore(player, inventory, locations, monsters):
-    """Allow the player to explore a random location and experience a random event."""
+def explore(player, locations, enemies):
+    """Allow the player to explore a random location and experience an event."""
     location = random.choice(locations)
     event = random.choice(["gold", "item", "monster", "nothing"])
 
@@ -122,52 +122,57 @@ def explore(player, inventory, locations, monsters):
 
     if event == "gold":
         found_gold = random.randint(3, 10)
-        player["gold"] += found_gold
+        player.gold += found_gold
         print(f"You found {found_gold} gold!")
 
     elif event == "item":
-        found_item = random.choice(["Old Shield", "Magic Herb", "Iron Dagger"])
-        inventory.append(found_item)
+        found_item = random.choice(
+            ["Old Shield", "Magic Herb", "Iron Dagger"]
+        )
+        player.inventory.append(found_item)
         print(f"You found a {found_item}!")
 
     elif event == "monster":
-        monster = random.choice(monsters)
-        monster_health = monster["health"]
+        monster = random.choice(enemies)
 
-        print(f"\nA wild {monster['name']} appears!")
+        # Use a separate variable so the original Enemy object is not changed.
+        monster_health = monster.health
 
-        while monster_health > 0 and player["health"] > 0:
-            print(f"\nYour Health: {player['health']}")
-            print(f"{monster['name']} Health: {monster_health}")
+        print(f"\nA wild {monster.name} appears!")
+
+        while monster_health > 0 and player.health > 0:
+            print(f"\nYour Health: {player.health}")
+            print(f"{monster.name} Health: {monster_health}")
 
             input("Press Enter to attack...")
 
-            monster_health -= player["attack"]
-            print(f"You hit the {monster['name']}!")
+            monster_health -= player.attack
+            print(f"You hit the {monster.name}!")
 
             if monster_health <= 0:
                 break
 
-            player["health"] -= monster["attack"]
-            print(f"The {monster['name']} attacks you!")
+            player.health -= monster.attack
+            print(f"The {monster.name} attacks you!")
 
-        if player["health"] > 0:
-            print(f"\nYou defeated the {monster['name']}!")
-            player["gold"] += monster["gold"]
-            player["level"] += 1
-            player["attack"] += 1
-            player["max_health"] += 2
-            player["health"] = player["max_health"]
+        if player.health > 0:
+            print(f"\nYou defeated the {monster.name}!")
 
-            print(f"You earned {monster['gold']} gold!")
+            player.gold += monster.gold
+            player.level += 1
+            player.attack += 1
+            player.max_health += 2
+            player.health = player.max_health
+
+            print(f"You earned {monster.gold} gold!")
             print("You leveled up!")
-            print(f"Level: {player['level']}")
-            print(f"Attack increased to {player['attack']}.")
-            print(f"Max health increased to {player['max_health']}.")
+            print(f"Level: {player.level}")
+            print(f"Attack increased to {player.attack}.")
+            print(f"Max health increased to {player.max_health}.")
 
         else:
             print("\nYou were defeated...")
-            player["health"] = player["max_health"]
+            player.health = player.max_health
             print("You wake up safely back at camp.")
 
     else:
