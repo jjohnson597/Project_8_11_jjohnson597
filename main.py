@@ -247,7 +247,5 @@ def main():
             print("\nInvalid choice. Please enter a number from 1 to 10.")
             input("\nPress Enter to continue...")
 
-print("Create your hero and begin your journey.")
-
 if __name__ == "__main__":
     main()
