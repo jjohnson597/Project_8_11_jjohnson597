@@ -101,8 +101,8 @@ def visit_shop(player, shop_items):
     input("\nPress Enter to continue...")
 
 def challenge_boss(player):
-    """Allow the player to challenge the final boss if they meet the level requirement."""
-    if player["level"] >= 3:
+    """Allow the player to challenge the final boss."""
+    if player.level >= 3:
         print("\nYou challenge the Dragon King...")
         print("After a difficult battle, you defeat the Dragon King!")
         print("You win the game!")
