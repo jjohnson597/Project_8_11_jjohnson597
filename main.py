@@ -174,74 +174,80 @@ def explore(player, locations, enemies):
 
     input("\nPress Enter to continue...")
 
-print("Welcome to RPG Adventure Simulator 2!")
-print("Create your hero and begin your journey.")
+def main():
+    """Run the RPG Adventure Simulator 2 game."""
+    print("Welcome to RPG Adventure Simulator 2!")
+    print("Create your hero and begin your journey.")
 
-player_name = input("\nEnter your hero's name: ")
-player = Player(player_name)
+    player_name = input("\nEnter your hero's name: ")
+    player = Player(player_name)
 
-print(f"\nWelcome, {player.name}!")
+    print(f"\nWelcome, {player.name}!")
 
-boss_defeated = False
+    boss_defeated = False
 
-while True:
-    print("\n==========================")
-    print(" RPG Adventure Simulator")
-    print("==========================")
-    print("1. View Character")
-    print("2. Explore")
-    print("3. View Inventory")
-    print("4. Use Health Potion")
-    print("5. Rest")
-    print("6. Visit Shop")
-    print("7. Save Game")
-    print("8. Load Game")
-    print("9. Challenge Dragon King")
-    print("10. Quit")
-    choice = input("\nChoose an option (1-10): ")
+    while True:
+        print("\n==========================")
+        print(" RPG Adventure Simulator")
+        print("==========================")
+        print("1. View Character")
+        print("2. Explore")
+        print("3. View Inventory")
+        print("4. Use Health Potion")
+        print("5. Rest")
+        print("6. Visit Shop")
+        print("7. Save Game")
+        print("8. Load Game")
+        print("9. Challenge Dragon King")
+        print("10. Quit")
 
-    if choice == "1":
-        view_character(player)
+        choice = input("\nChoose an option (1-10): ")
 
-    elif choice == "2":
-        explore(player, LOCATIONS, ENEMIES)
+        if choice == "1":
+            view_character(player)
 
-    elif choice == "3":
-        view_inventory(player)
+        elif choice == "2":
+            explore(player, LOCATIONS, ENEMIES)
 
-    elif choice == "4":
-        use_health_potion(player)
+        elif choice == "3":
+            view_inventory(player)
 
-    elif choice == "5":
-        rest(player)
+        elif choice == "4":
+            use_health_potion(player)
 
-    elif choice == "6":
-        visit_shop(player, SHOP_ITEMS)
+        elif choice == "5":
+            rest(player)
 
-    elif choice == "7":
-        save_game(player)
-        input("\nPress Enter to continue...")
+        elif choice == "6":
+            visit_shop(player, SHOP_ITEMS)
 
-    elif choice == "8":
-        loaded_player = load_game()
+        elif choice == "7":
+            save_game(player)
+            input("\nPress Enter to continue...")
 
-        if loaded_player is not None:
-            player = loaded_player
+        elif choice == "8":
+            loaded_player = load_game()
 
-        input("\nPress Enter to continue...")
+            if loaded_player is not None:
+                player = loaded_player
 
-    elif choice == "9":
-        boss_defeated = challenge_boss(player)
+            input("\nPress Enter to continue...")
 
-        if boss_defeated:
+        elif choice == "9":
+            boss_defeated = challenge_boss(player)
+
+            if boss_defeated:
+                break
+
+        elif choice == "10":
+            print("\nThanks for playing. Goodbye!")
             break
 
-    elif choice == "10":
-        print("\nThanks for playing. Goodbye!")
-        break
+        else:
+            print("\nInvalid choice. Please enter a number from 1 to 10.")
+            input("\nPress Enter to continue...")
 
-    else:
-        print("\nInvalid choice. Please enter a number from 1 to 10.")
-        input("\nPress Enter to continue...")
+print("Create your hero and begin your journey.")
 
-    
+if __name__ == "__main__":
+    main()
