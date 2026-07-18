@@ -39,6 +39,17 @@ class Player(Character):
         self.gold = 10
         self.inventory = ["Health Potion", "Rusty Sword"]
 
+    def heal(self, amount):
+        """Restore health without exceeding the maximum health."""
+        self.health += amount
+
+        if self.health > self.max_health:
+            self.health = self.max_health
+
+    def restore_health(self):
+        """Restore the player's health to its maximum value."""
+        self.health = self.max_health
+
     def level_up(self):
         """Increase the player's level, attack, and maximum health."""
         self.level += 1
