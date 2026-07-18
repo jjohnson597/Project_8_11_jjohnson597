@@ -39,10 +39,7 @@ def use_health_potion(player):
         player.inventory.remove("Health Potion")
 
         heal_amount = 15
-        player.health += heal_amount
-
-        if player.health > player.max_health:
-            player.health = player.max_health
+        player.heal(heal_amount)
 
         print("\nYou drink a Health Potion.")
         print(f"You recovered {heal_amount} health.")
@@ -54,7 +51,7 @@ def use_health_potion(player):
 
 def rest(player):
     """Restore the player's health to the maximum value."""
-    player.health = player.max_health
+    player.restore_health()
 
     print("\nYou rest at camp and recover your health.")
     print(f"Health restored to {player.health}/{player.max_health}.")
@@ -153,17 +150,13 @@ def explore(player, locations, enemies):
             if monster_health <= 0:
                 break
 
-            player.health -= monster.attack
+            player.take_damage(monster.attack)
             print(f"The {monster.name} attacks you!")
 
         if player.health > 0:
             print(f"\nYou defeated the {monster.name}!")
 
-            player.gold += monster.gold
-            player.level += 1
-            player.attack += 1
-            player.max_health += 2
-            player.health = player.max_health
+            player.level_up()
 
             print(f"You earned {monster.gold} gold!")
             print("You leveled up!")
@@ -173,7 +166,7 @@ def explore(player, locations, enemies):
 
         else:
             print("\nYou were defeated...")
-            player.health = player.max_health
+            player.restore_health()
             print("You wake up safely back at camp.")
 
     else:
