@@ -155,7 +155,7 @@ def explore(player, locations, enemies):
 
         if player.health > 0:
             print(f"\nYou defeated the {monster.name}!")
-
+            player.gold += monster.gold
             player.level_up()
 
             print(f"You earned {monster.gold} gold!")
