@@ -57,6 +57,32 @@ class TestCharacterClasses(unittest.TestCase):
         self.assertEqual(player.attack, 7)
         self.assertEqual(player.max_health, 32)
 
+    def test_player_and_enemy_inherit_from_character(self):
+        """Player and Enemy should inherit from Character."""
+        player = Player("Jaylen")
+        enemy = Enemy("Goblin", 10, 3, 5)
+
+        self.assertIsInstance(player, Character)
+        self.assertIsInstance(enemy, Character)
+
+    def test_heal_does_not_exceed_max_health(self):
+        """Healing should not raise health above maximum health."""
+        player = Player("Jaylen")
+        player.health = 25
+
+        player.heal(20)
+
+        self.assertEqual(player.health, player.max_health)
+
+
+    def test_damage_does_not_reduce_health_below_zero(self):
+        """Damage should not reduce health below zero."""
+        player = Player("Jaylen")
+
+        player.take_damage(100)
+
+        self.assertEqual(player.health, 0)
+        self.assertFalse(player.is_alive())
 
 if __name__ == "__main__":
     unittest.main()
