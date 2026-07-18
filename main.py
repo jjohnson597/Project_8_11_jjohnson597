@@ -3,7 +3,7 @@ Program: RPG Adventure Simulator 2
 Author: Jaylen Johnson
 Purpose: Main game loop for RPG Adventure Simulator 2.
 Starter code: Adapted from my Project 1 RPG Adventure Simulator.
-Date: 7/12/2026
+Date: 7/19/2026
 """
 
 import random
@@ -32,20 +32,20 @@ def view_inventory(player):
 
     input("\nPress Enter to continue...")
 
-def use_health_potion(player, inventory):
-    """Use a health potion from inventory to restore player health."""
-    if "Health Potion" in inventory:
-        inventory.remove("Health Potion")
+def use_health_potion(player):
+    """Use a health potion from the player's inventory."""
+    if "Health Potion" in player.inventory:
+        player.inventory.remove("Health Potion")
 
         heal_amount = 15
-        player["health"] += heal_amount
+        player.health += heal_amount
 
-        if player["health"] > player["max_health"]:
-            player["health"] = player["max_health"]
+        if player.health > player.max_health:
+            player.health = player.max_health
 
         print("\nYou drink a Health Potion.")
         print(f"You recovered {heal_amount} health.")
-        print(f"Current Health: {player['health']}/{player['max_health']}")
+        print(f"Current Health: {player.health}/{player.max_health}")
     else:
         print("\nYou don't have a Health Potion!")
 

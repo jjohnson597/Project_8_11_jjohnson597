@@ -3,7 +3,7 @@ Program: RPG Adventure Simulator 2 - Game Data
 Author: Jaylen Johnson
 Purpose: Stores reusable game data for locations, enemies, and shop items.
 Starter code: Adapted from my Project 1 RPG Adventure Simulator.
-Date: 7/12/2026
+Date: 7/19/2026
 """
 
 from character import Enemy

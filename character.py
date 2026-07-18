@@ -3,7 +3,7 @@ Program: RPG Adventure Simulator 2 - Character Classes
 Author: Jaylen Johnson
 Purpose: Defines character classes used by the RPG game.
 Starter code: Adapted from my Project 1 RPG Adventure Simulator.
-Date: 7/12/2026
+Date: 7/19/2026
 """
 
 
