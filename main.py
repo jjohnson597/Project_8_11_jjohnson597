@@ -53,10 +53,10 @@ def use_health_potion(player):
 
 def rest(player):
     """Restore the player's health to the maximum value."""
-    player["health"] = player["max_health"]
+    player.health = player.max_health
 
     print("\nYou rest at camp and recover your health.")
-    print(f"Health restored to {player['health']}/{player['max_health']}.")
+    print(f"Health restored to {player.health}/{player.max_health}.")
 
     input("\nPress Enter to continue...")
 
