@@ -3,7 +3,7 @@ Program: RPG Adventure Simulator 2 - Save Manager
 Author: Jaylen Johnson
 Purpose: Saves and loads player data using a JSON file.
 Starter code: Original code created for this project using Python
-standard-library documentation for json and pathlib.
+standard library documentation for json and pathlib.
 Date: 7/19/2026
 """
 
