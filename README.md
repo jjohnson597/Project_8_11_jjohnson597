@@ -1,6 +1,6 @@
 # Project_8_11_jjohnson597
 
-Video Link: Coming soon
+Video Link: (https://youtu.be/9WT1RlbonPc)
 
 ## RPG Adventure Simulator 2
 
